@@ -3,10 +3,10 @@ package com.blogspot.nurkiewicz;
 import org.apache.commons.dbcp.BasicDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.support.AbstractApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
@@ -15,7 +15,7 @@ import javax.sql.DataSource;
  * @author Tomasz Nurkiewicz
  * @since 31.08.11, 21:42
  */
-@Configuration
+@ComponentScan("com.blogspot.nurkiewicz")
 public class Bootstrap {
 
 	private static final Logger log = LoggerFactory.getLogger(Bootstrap.class);
@@ -35,7 +35,7 @@ public class Bootstrap {
 	}
 
 	public static void main(String[] args) {
-		final AbstractApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+		final AbstractApplicationContext applicationContext = new AnnotationConfigApplicationContext(Bootstrap.class);
 		final Foo foo = applicationContext.getBean(Foo.class);
 
 		log.info(foo.serverTime());
