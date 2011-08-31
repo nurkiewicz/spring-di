@@ -2,7 +2,6 @@ package com.blogspot.nurkiewicz
 
 import org.apache.commons.lang.time.FastDateFormat
 import org.springframework.stereotype.Service
-import javax.annotation.PostConstruct
 import java.util.Date
 import org.apache.commons.lang.time.FastDateFormat.FULL
 
@@ -12,11 +11,7 @@ import org.apache.commons.lang.time.FastDateFormat.FULL
  */
 @Service
 class Bar {
-	private var dateFormat: FastDateFormat = null
-
-	@PostConstruct def init() {
-		dateFormat = FastDateFormat.getDateTimeInstance(FULL, FULL)
-	}
+	private val dateFormat = FastDateFormat.getDateTimeInstance(FULL, FULL)
 
 	def format(date: Date): String = dateFormat.format(date)
 
