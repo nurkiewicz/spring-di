@@ -2,6 +2,7 @@ package com.blogspot.nurkiewicz;
 
 import org.springframework.jdbc.core.JdbcOperations;
 
+import javax.annotation.Resource;
 import java.util.Date;
 
 /**
@@ -10,8 +11,10 @@ import java.util.Date;
  */
 public class Foo {
 
+	@Resource
 	private Bar bar;
 
+	@Resource
 	private JdbcOperations jdbcOperations;
 
 	public String serverTime() {
@@ -20,11 +23,4 @@ public class Foo {
 		);
 	}
 
-	public void setBar(Bar bar) {
-		this.bar = bar;
-	}
-
-	public void setJdbcOperations(JdbcOperations jdbcOperations) {
-		this.jdbcOperations = jdbcOperations;
-	}
 }

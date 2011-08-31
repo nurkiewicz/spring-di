@@ -2,7 +2,7 @@ package com.blogspot.nurkiewicz;
 
 import org.apache.commons.lang.time.FastDateFormat;
 
-import java.text.DateFormat;
+import javax.annotation.PostConstruct;
 import java.util.Date;
 
 import static org.apache.commons.lang.time.FastDateFormat.FULL;
@@ -15,6 +15,7 @@ public class Bar {
 
 	private FastDateFormat dateFormat;
 
+	@PostConstruct
 	public void init() {
 		dateFormat = FastDateFormat.getDateTimeInstance(FULL, FULL);
 	}
