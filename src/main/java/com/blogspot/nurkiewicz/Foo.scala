@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired
  * @since 31.08.11, 21:26
  */
 @Service
-class Foo @Autowired() (val bar: Bar, val jdbcOperations: JdbcOperations) {
+class Foo @Autowired() (bar: Bar, jdbcOperations: JdbcOperations) {
 
 	def serverTime() = bar.format(jdbcOperations.queryForObject("SELECT now()", classOf[Date]))
 
