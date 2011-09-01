@@ -15,7 +15,7 @@ public class Bootstrap {
 
 	public static void main(String[] args) {
 		final AbstractApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
-		final Foo foo = applicationContext.getBean(Foo.class);
+		final Foo foo = (Foo) applicationContext.getBean("foo");
 
 		log.info(foo.serverTime());
 
