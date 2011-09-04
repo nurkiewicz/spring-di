@@ -16,7 +16,7 @@ public class Foo {
 
 	public String serverTime() {
 		return bar.format(
-				jdbcOperations.queryForObject("SELECT now()", Date.class)
+				(Date)jdbcOperations.queryForObject("SELECT now()", Date.class)
 		);
 	}
 
